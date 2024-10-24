@@ -13,7 +13,8 @@ pipeline {
                     url: 'https://github.com/enamouchi/5-win-neural-navigators.git'
             }
         }
-    stage('Maven Clean') {
+        
+        stage('Maven Clean') {
             steps {
                 echo 'Nettoyage du Projet : ';
                 sh 'mvn clean';
