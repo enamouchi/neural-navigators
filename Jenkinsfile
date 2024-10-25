@@ -32,5 +32,11 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=Azerty12345.';
             }
         }
+        stage('Maven Package') {
+            steps {
+                echo 'Création du livrable : ';
+                sh 'mvn package -DskipTests';
+            }
+        }
     }
 }
