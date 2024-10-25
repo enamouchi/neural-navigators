@@ -1,7 +1,7 @@
 package tn.esprit.tpfoyer.service;
 
 
-import jakarta.transaction.Transactional;
+//import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -34,7 +34,7 @@ public class BlocServiceImpl  implements IBlocService {
     }
 
     // Exemple sans Keywords :
-    @Transactional
+    //@Transactional
     public List<Bloc> retrieveBlocsSelonCapacite(long c) {
 
         List<Bloc> listB = blocRepository.findAll();
@@ -48,7 +48,7 @@ public class BlocServiceImpl  implements IBlocService {
         return listBselonC;
     }
 
-    @Transactional
+   // @Transactional
     public Bloc retrieveBloc(Long blocId) {
 
         return blocRepository.findById(blocId).get();
