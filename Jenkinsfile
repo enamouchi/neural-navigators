@@ -26,7 +26,7 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
-         stage('SonarQue') {
+         stage('SonarQube') {
             steps {
                 echo 'Analyse de la Qualité du Code : ';
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=Azerty12345.';
