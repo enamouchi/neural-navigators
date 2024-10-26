@@ -26,11 +26,7 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
-        stage('Compile Stage') {
-            steps {
-                sh 'mvn compile'
-            }
-        }
+       
          stage('SonarQube') {
             steps {
                 echo 'Analyse de la Qualité du Code : ';
@@ -41,6 +37,12 @@ pipeline {
             steps {
                 echo 'Création du livrable : ';
                 sh 'mvn package -DskipTests';
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Déploiement vers Nexus : ';
+                sh 'mvn deploy -DskipTests'
             }
         }
     }
