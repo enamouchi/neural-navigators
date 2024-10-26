@@ -52,17 +52,16 @@ pipeline {
                 sh 'docker build -t emnanamouchi/tp_foyer:1.0.0 .'
             }
         }
-        stage('Push to Docker Hub') {
-            steps {
-                echo 'Pushing Image to Docker Hub:'
-                // Use Jenkins credentials for Docker Hub login
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
-                }
-                // Push the built image to Docker Hub
-                sh 'docker push emnanamouchi/tp_foyer:1.0.0'
-            }
-        }
+       stage('Push to Docker Hub') {
+    steps {
+        echo 'Pushing Image to Docker Hub:'
+        // Login to Docker Hub with your account credentials
+        sh 'echo AZERTY12345 | docker login -u emnanamouchi --password-stdin'
+        // Push the built image to Docker Hub
+        sh 'docker push emnanamouchi/tp_foyer:1.0.0'
+    }
+}
+
         stage('Start Services with Docker Compose') {
             steps {
                 echo 'Starting Backend + DB using Docker Compose:'
