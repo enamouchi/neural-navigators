@@ -45,5 +45,30 @@ pipeline {
                 sh 'mvn deploy -DskipTests'
             }
         }
+       stage('Build Image') {
+            steps {
+                echo 'Building Docker Image:'
+                // Build the Docker image
+                sh 'docker build -t emnanamouchi/tp_foyer:1.0.0 .'
+            }
+        }
+        stage('Push to Docker Hub') {
+            steps {
+                echo 'Pushing Image to Docker Hub:'
+                // Use Jenkins credentials for Docker Hub login
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                }
+                // Push the built image to Docker Hub
+                sh 'docker push emnanamouchi/tp_foyer:1.0.0'
+            }
+        }
+        stage('Start Services with Docker Compose') {
+            steps {
+                echo 'Starting Backend + DB using Docker Compose:'
+                // Start the services defined in docker-compose.yml
+                sh 'docker-compose up -d'
+            }
+        }
     }
 }
