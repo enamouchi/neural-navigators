@@ -56,7 +56,7 @@ pipeline {
     steps {
         echo 'Pushing Image to Docker Hub:'
         // Login to Docker Hub with your account credentials
-        sh 'echo AZERTY12345 | docker login -u emnanamouchi --password-stdin'
+        sh 'echo AZERTY12345. | docker login -u emnanamouchi --password-stdin'
         // Push the built image to Docker Hub
         sh 'docker push emnanamouchi/tp_foyer:1.0.0'
     }
