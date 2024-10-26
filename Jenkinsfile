@@ -26,6 +26,11 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
+        stage('Compile Stage') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
          stage('SonarQube') {
             steps {
                 echo 'Analyse de la Qualité du Code : ';
