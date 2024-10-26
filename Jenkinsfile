@@ -33,13 +33,13 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=Azerty12345.';
             }
         }
-        stage('Maven Package') {
+        stage('nexus') {
             steps {
                 echo 'Création du livrable : ';
                 sh 'mvn package -DskipTests';
             }
         }
-        stage('Deploy') {
+        stage('Deploy N') {
             steps {
                 echo 'Déploiement vers Nexus : ';
                 sh 'mvn deploy -DskipTests'
