@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  tp-foyer:
+    image: emnanamouchi/tp_foyer:1.0.0 # Use the image from Docker Hub
+    build:
+      context: . # Context for the build
+      dockerfile: Dockerfile # Specify Dockerfile if it’s not named 'Dockerfile'
+    ports:
+      - "8082:8080" # Expose port 8082 on the host, mapping to port 8080 of the container
+    volumes:
+      - ./target/tp-foyer-5.0.0.jar:/tp-foyer.jar # Adjust the JAR file path as needed
+    entrypoint: ["java", "-jar", "/tp-foyer.jar"] # Adjust the entrypoint command as needed
+
