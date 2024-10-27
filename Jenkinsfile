@@ -49,24 +49,24 @@ pipeline {
             steps {
                 echo 'Building Docker Image:'
                 // Build the Docker image
-                sh 'docker build -t emnanamouchi/tp_foyer:1.0.0 .'
+                sh 'docker build -t emnanamouchi/tp-foyer:1.0.0 .'
             }
         }
-       stage('Push to Docker Hub') {
+       stage('Dockerhub') {
     steps {
         echo 'Pushing Image to Docker Hub:'
         // Login to Docker Hub with your account credentials
-        sh 'echo AZERTY12345. | docker login -u emnanamouchi --password-stdin'
+        sh 'docker login -u emnanamouchi -p AZERTY12345.'
         // Push the built image to Docker Hub
-        sh 'docker push emnanamouchi/tp_foyer:1.0.0'
+        sh 'docker push emnanamouchi/tp-foyer:1.0.0'
     }
 }
 
-        stage('Start Services with Docker Compose') {
+        stage('Docker Compose') {
             steps {
                 echo 'Starting Backend + DB using Docker Compose:'
                 // Start the services defined in docker-compose.yml
-                sh 'docker-compose up -d'
+                sh 'docker compose up -d'
             }
         }
     }
