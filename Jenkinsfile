@@ -1,20 +1,18 @@
 pipeline {
+    agent any
+    stages {
 
- agent any
- stages {
+        stage('Compile Stage') {
+            steps {
+                sh 'mvn clean compile'
+            }
+        }
 
- 
+        stage('Execution des tests unitaires ') {
+            steps {
+                sh ' mvn test'
+            }
+        }
+    }
+}
 
- stage ('Compile Stage') {
-
- steps {
-
- sh 'mvn clean compile' 
- }
-
- }
- }
- }
- 
-
- 
