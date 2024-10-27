@@ -13,6 +13,11 @@ pipeline {
                 sh ' mvn test'
             }
         }
+        stage(' Analyse Sonarqube ') {
+            steps {
+                sh 'sonar:sonar'
+            }
+        }
     }
 }
 
