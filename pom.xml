@@ -13,9 +13,12 @@
     <version>5.0.0</version>
     <name>tp-foyer</name>
     <description>tp-foyer</description>
-    <properties>
-        <java.version>11</java.version>
-    </properties>
+
+        <properties>
+            <maven.compiler.source>17</maven.compiler.source>
+            <maven.compiler.target>17</maven.compiler.target>
+        </properties>
+
     <dependencies>
 
         <dependency>
@@ -105,10 +108,7 @@
                     </excludes>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-            </plugin>
+
         </plugins>
     </build>
 
