@@ -39,7 +39,7 @@ pipeline {
                 sh 'mvn package -DskipTests';
             }
         }
-        stage('Deploy N') {
+        stage('Deploy Nexus') {
             steps {
                 echo 'Déploiement vers Nexus : ';
                 sh 'mvn deploy -DskipTests'
