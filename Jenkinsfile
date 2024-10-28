@@ -1,7 +1,6 @@
 pipeline {
     agent any
     stages {
-
         stage('Compile Stage') {
             steps {
                 sh 'mvn clean compile'
@@ -15,7 +14,9 @@ pipeline {
         }
         stage(' Analyse Sonarqube ') {
             steps {
-                sh 'mvn sonar:sonar'
+                withSonarQubeEnv('sq1') {
+                    sh 'mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN'
+                }
             }
         }
     }
