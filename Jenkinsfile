@@ -39,21 +39,21 @@ pipeline {
          stage('Image') {
             steps {
                 echo 'Création Image : ';
-                sh 'docker build -t mouradhassini/achat-image:1.0.0 .';
+                sh 'docker build -t oumou/tp-foyer:1.0.0 .';
             }
         }
 
         stage('Dockerhub') {
             steps {
                 echo 'Push Image to dockerhub : ';
-                sh 'docker login -u mouradhassini -p votrepassworddockerhub';
-                sh 'docker push mouradhassini/achat-image:1.0.0';
+                sh 'docker login -u oumou2001 -p 1234goyou';
+                sh 'docker push oumou/tp-foyer:1.0.0';
             }
         }
 
         stage('Docker-Compose') {
             steps {
-                echo 'Staet Backend + DB : ';
+                echo 'Start Backend + DB : ';
                 sh 'docker compose up -d';
             }
         }
