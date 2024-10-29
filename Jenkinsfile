@@ -36,5 +36,27 @@ pipeline {
             }
         }
 
+         stage('Image') {
+            steps {
+                echo 'Création Image : ';
+                sh 'docker build -t mouradhassini/achat-image:1.0.0 .';
+            }
+        }
+
+        stage('Dockerhub') {
+            steps {
+                echo 'Push Image to dockerhub : ';
+                sh 'docker login -u mouradhassini -p votrepassworddockerhub';
+                sh 'docker push mouradhassini/achat-image:1.0.0';
+            }
+        }
+
+        stage('Docker-Compose') {
+            steps {
+                echo 'Staet Backend + DB : ';
+                sh 'docker compose up -d';
+            }
+        }
+
     }
 }
