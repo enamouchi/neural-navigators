@@ -25,14 +25,14 @@ pipeline {
           stage('Maven Package') {
             steps {
                 echo 'Création du livrable : ';
-                sh 'mvn package';
+                sh 'mvn package -DskipTests';
             }
         }
 
          stage('Deploy to Nexus') {
             steps {
                 echo 'Déploiement sur Nexus : '
-                sh 'mvn deploy'
+                sh 'mvn deploy -DskipTests'
             }
         }
 
