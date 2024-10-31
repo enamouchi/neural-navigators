@@ -18,7 +18,7 @@ pipeline {
           stage('Test Unitaire') {
                     steps {
                         echo 'Exécution des tests unitaires : '
-                        sh 'mvn -Dtest=tn.esprit.tpfoyer.test.BlocTest test';
+                        sh 'mvn -Dtest=BlocTest* test';
                     }
                 }
 
