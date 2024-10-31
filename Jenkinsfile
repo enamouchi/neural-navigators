@@ -15,6 +15,13 @@ pipeline {
             }
         }
 
+          stage('Test Unitaire') {
+                    steps {
+                        echo 'Exécution des tests unitaires : '
+                        sh 'mvn test'
+                    }
+                }
+
             stage('SonarQube') {
             steps {
                 echo 'Analyse de la Qualité du Code : ';
