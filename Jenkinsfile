@@ -46,8 +46,8 @@ pipeline {
         stage('Dockerhub') {
             steps {
                 echo 'Push Image to dockerhub : ';
-                sh 'docker login -u oumou2001 -p 1234goyou';
-                sh 'docker push oumou/tp-foyer:1.0.0';
+               
+              sh 'docker push --debug oumou/tp-foyer:1.0.0'
             }
         }
 
