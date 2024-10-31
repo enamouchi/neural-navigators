@@ -18,7 +18,7 @@ pipeline {
           stage('Test Unitaire') {
                     steps {
                         echo 'Exécution des tests unitaires : '
-                        sh 'mvn -Dtest=BlocTest* test';
+                        sh 'mvn test';
                     }
                 }
 
