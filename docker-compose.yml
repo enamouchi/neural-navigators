@@ -14,7 +14,7 @@ services:
   tp-foyer:
     depends_on:
       - mysqldb
-    image: oumou/tp-foyer:1.0.0
+    image: oumou2001/tp-foyer:1.0.0
     restart: on-failure
     ports:
       - 8084:8084
