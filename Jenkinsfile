@@ -19,7 +19,6 @@ pipeline {
                     steps {
                         echo 'Exécution des tests unitaires : '
                         sh 'mvn -Dtest=src.main.java.tn.esprit.tpfoyer.test.BlocTest test';
-'
                     }
                 }
 
