@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: Arwa_2024!          # Mot de passe pour l'utilisateur root
+      MYSQL_DATABASE: db                          # Nom de la base de données à créer
+      MYSQL_USER: root                            # Utilisateur MySQL (optionnel, ici c'est root)
+      MYSQL_PASSWORD: Arwa_2024!                  # Mot de passe de l'utilisateur MySQL
+    ports:
+      - "3307:3306"                               # Expose le port 3306
+    volumes:
+      - mysql-data:/var/lib/mysql                # Persistant les données MySQL
+
+  tp-foyer-app:
+    image: arwarebhi/tp-foyer-app:latest                         # Remplacez par le nom de votre image de l'application
+    ports:
+      - "8089:8089"                               # Expose le port de votre application
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/db?createDatabaseIfNotExist=true  # URL de la base de données
+      SPRING_DATASOURCE_USERNAME: root           # Nom d'utilisateur de la base de données
+      SPRING_DATASOURCE_PASSWORD: Arwa_2024!     # Mot de passe de la base de données
+      SPRING_JPA_SHOW_SQL: "true"                # Afficher les requêtes SQL dans les logs
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update      # Configuration Hibernate
+      SERVER_PORT: "8089"                        # Port du serveur
+      SERVER_SERVLET_CONTEXT_PATH: /tpfoyer      # Contexte de l'application
+      LOGGING_LEVEL_TN_ESPIRIT_TPFOYER: DEBUG    # Niveau de logging pour votre application
+      LOGGING_LEVEL_ROOT: INFO                    # Niveau de logging par défaut
+    depends_on:
+      - mysql                                     # Assurez-vous que MySQL est démarré avant l'application
+
+volumes:
+  mysql-data:                                     # Volume pour persister les données MySQL
