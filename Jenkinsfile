@@ -28,7 +28,7 @@ pipeline {
                 sh 'mvn deploy -Dmaven.test.skip=true'
             }
         }
-        stage('Build Image') {
+        stage('Docker image') {
             steps {
                 echo 'Building Docker Image:'
                 // Build the Docker image
