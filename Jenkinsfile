@@ -28,5 +28,13 @@ pipeline {
                 sh 'mvn deploy -Dmaven.test.skip=true'
             }
         }
+        stage('Build Image') {
+            steps {
+                echo 'Building Docker Image:'
+                // Build the Docker image
+                sh 'docker build -t arwarebhi/tp-foyer:1.0.0 .'
+                sh 'docker tag arwarebhi/tp-foyer-app:1.0.0 arwarebhi/tp-foyer-app:latest'
+            }
+        }
     }
 }
