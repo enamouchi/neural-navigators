@@ -5,7 +5,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 // Clone the repository from the specified branch
-                git url: 'https://github.com/enamouchi/5-win-neural-navigators.git', branch: 'hamrouni'
+                git url: 'https://github.com/enamouchi/5-win-neural-navigators.git', branch: 'hamrounif'
             }
         }
         stage('Clean and Compile') {
