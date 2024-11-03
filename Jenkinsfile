@@ -25,7 +25,7 @@ pipeline {
                 // Perform SonarQube analysis with SonarQube server environment
                 withSonarQubeEnv('SonarQube') {
                     withCredentials([string(credentialsId: 'SonarQubeToken2', variable: 'SONAR_TOKEN')]) {
-                        sh 'mvn sonar:sonar -sonar.projectKey=neural_navigators_project -sonar.login=$SONAR_TOKEN'
+                        sh 'mvn sonar:sonar -Dsonar.projectKey=neural_navigators_project -Dsonar.login=$SONAR_TOKEN'
                     }
                 }
             }
