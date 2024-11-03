@@ -26,6 +26,12 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
+            stage('Test Stage') {
+    steps {
+        echo 'Running unit tests...'
+        sh 'mvn test'
+                }
+            }
        
          stage('SonarQube') {
             steps {
@@ -71,5 +77,6 @@ pipeline {
                 sh 'docker compose up -d'
             }
         }
+        
     }
 }
