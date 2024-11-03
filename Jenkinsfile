@@ -68,14 +68,14 @@ pipeline {
           stage('Lancer Prometheus') {
                     steps {
                         echo 'Lancement de Prometheus : '
-                        sh 'docker run -d --name prometheus -p 9090:9090 prom/prometheus'
+                        sh 'docker start prometheus'
                     }
                 }
 
                 stage('Lancer Grafana') {
                     steps {
                         echo 'Lancement de Grafana : '
-                        sh 'docker run -d --name grafana -p 3000:3000 grafana/grafana'
+                        sh 'docker start grafana'
                     }
                 }
 
