@@ -22,12 +22,13 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                // Perform SonarQube analysis with credentials
-                withCredentials([string(credentialsId: 'SonarQubeToken', variable: 'SONAR_TOKEN')]) {
-                    sh 'mvn sonar:sonar -Dsonar.projectKey=neural_navigators_project -Dsonar.host.url=http://192.168.50.4:9000 -Dsonar.login=$SONAR_TOKEN'
+                // Perform SonarQube analysis with SonarQube server environment
+                withSonarQubeEnv('SonarQube') {
+                    withCredentials([string(credentialsId: 'SonarQubeToken', variable: 'SONAR_TOKEN')]) {
+                        sh 'mvn sonar:sonar -Dsonar.projectKey=neural_navigators_project -Dsonar.login=$SONAR_TOKEN'
+                    }
                 }
             }
         }
-       
     }
 }
