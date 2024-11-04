@@ -46,8 +46,8 @@ pipeline {
                         sh 'echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin'
                         }
                     // Pousser les images Docker
-                    sh 'docker push arwarebhi/tp-foyer-app:1.0.0'
-                    sh 'docker push arwarebhi/tp-foyer-app:latest'
+                    sh 'docker push arwarebhi/tp-foyer:1.0.0'
+                    sh 'docker push arwarebhi/tp-foyer:latest'
                 }
             }
         }
