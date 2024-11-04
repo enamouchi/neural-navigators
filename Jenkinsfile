@@ -84,14 +84,14 @@ pipeline {
                 sh 'docker compose up -d'
             }
         }
-       stage('Lancer Prometheus') {
+       stage(' Prometheus') {
                     steps {
                         echo 'Lancement de Prometheus : '
                         sh 'docker start prometheus'
                     }
                 }
 
-                stage('Lancer Grafana') {
+                stage(' Grafana') {
                     steps {
                         echo 'Lancement de Grafana : '
                         sh 'docker start grafana'
