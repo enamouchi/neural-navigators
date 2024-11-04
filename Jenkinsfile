@@ -1,12 +1,15 @@
 pipeline {
-    agent any
+  agent any
 
-    stages {
-        stage('Compile Stage') {
+
+   stages {
+        stage('GIT') {
             steps {
-                sh 'mvn clean compile'
+                git branch: 'rebhiarwa_5WIN_neuralnavigators',
+                    url: 'https://github.com/enamouchi/5-win-neural-navigators.git'
             }
         }
+
 
         stage('Execution des tests unitaires') {
             steps {
@@ -33,7 +36,7 @@ pipeline {
                 echo 'Building Docker Image:'
                 // Build the Docker image
                 sh 'docker build -t arwarebhi/tp-foyer:1.0.0 .'
-                sh 'docker tag arwarebhi/tp-foyer-app:1.0.0 arwarebhi/tp-foyer-app:latest'
+                sh 'docker tag arwarebhi/tp-foyer:1.0.0 arwarebhi/tp-foyer:latest'
             }
         }
     }
