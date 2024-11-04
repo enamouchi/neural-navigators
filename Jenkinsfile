@@ -71,12 +71,12 @@ pipeline {
     }
     post {
         success {
-            mail to: 'oumou.diallo@esprit.tn',
+            mail to: 'goyou3708@gmail.com',
                  subject: "Pipeline Success: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
                  body: "Le pipeline Jenkins s'est terminé avec succès.\n\nJob: ${env.JOB_NAME}\nBuild: ${env.BUILD_NUMBER}\nStatut: SUCCESS\nConsultez les détails ici: ${env.BUILD_URL}"
         }
         failure {
-            mail to: 'oumou.diallo@esprit.tn',
+            mail to: 'goyou3708@gmail.com',
                  subject: "Pipeline Failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
                  body: "Le pipeline Jenkins a échoué.\n\nJob: ${env.JOB_NAME}\nBuild: ${env.BUILD_NUMBER}\nStatut: FAILED\nConsultez les détails ici: ${env.BUILD_URL}"
         }
