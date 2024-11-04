@@ -26,6 +26,12 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
+         stage('Test Unitaire') {
+                    steps {
+                        echo 'Exécution des tests unitaires : '
+                        sh 'mvn test';
+                    }
+                }
           
        
          stage('SonarQube') {
@@ -73,6 +79,21 @@ pipeline {
                 sh 'docker compose up -d'
             }
         }
+       stage('Lancer Prometheus') {
+                    steps {
+                        echo 'Lancement de Prometheus : '
+                        sh 'docker start prometheus'
+                    }
+                }
+
+                stage('Lancer Grafana') {
+                    steps {
+                        echo 'Lancement de Grafana : '
+                        sh 'docker start grafana'
+                    }
+                }
+
+    
         
     }
 }
