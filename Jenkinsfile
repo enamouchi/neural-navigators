@@ -45,12 +45,34 @@ pipeline {
                                 sh 'mvn package -DskipTests';
                             }
                         }
-
+/*
                         stage('Maven Deploy') {
                                                     steps {
                                                         echo 'Création du livrable : ';
                                                         sh 'mvn deploy -DskipTests';
                                                     }
-                                                }
+                                                }*/
+
+        stage('Image') {
+            steps {
+                echo 'Création Image : ';
+                sh 'docker build -t hamrounifiras/tp-foyer-image:1.0.0 .';
+            }
+        }
+
+        stage('Dockerhub') {
+            steps {
+                echo 'Push Image to dockerhub : ';
+                sh 'docker login -u hamrounifiras -p @Esprit19981998';
+                sh 'docker push hamrounifiras/tp-foyer-image:1.0.0';
+            }
+        }
+
+        stage('Docker-Compose') {
+            steps {
+                echo 'Staet Backend + DB : ';
+                sh 'docker compose up -d';
+            }
+        }
     }
 }
