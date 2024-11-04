@@ -70,7 +70,7 @@
                 Nexus Repository
             </name>
             <url>
-                http://192.168.50.4/:8081/repository/maven-releases/
+                http://192.168.50.4:8081/repository/maven-releases/
             </url>
         </repository>
     </distributionManagement>
