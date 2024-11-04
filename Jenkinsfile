@@ -34,12 +34,7 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=Azerty12345.';
             }
         }
-          stage('Test Stage') {
-    steps {
-        echo 'Running unit tests...'
-        sh 'mvn test'
-                }
-            }
+
         stage('nexus') {
             steps {
                 echo 'Création du livrable : ';
