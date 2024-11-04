@@ -47,6 +47,11 @@ pipeline {
                 sh 'mvn package -DskipTests';
             }
         }
+        stage('Verify Artifacts') {
+            steps {
+                sh 'ls -l target/*.jar' // Verify that the JAR files exist
+            }
+        }
         stage('Deploy Nexus') {
             steps {
                 echo 'Déploiement vers Nexus : ';
