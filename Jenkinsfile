@@ -46,7 +46,7 @@ pipeline {
                             }
                         }
 
-                        stage('Maven Package') {
+                        stage('Maven Deploy') {
                                                     steps {
                                                         echo 'Création du livrable : ';
                                                         sh 'mvn deploy -DskipTests';
