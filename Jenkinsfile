@@ -38,5 +38,12 @@ pipeline {
                         sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=@Esprit19981998';
                     }
                 }
+
+                 stage('Maven Package') {
+                            steps {
+                                echo 'Création du livrable : ';
+                                sh 'mvn package -DskipTests';
+                            }
+                        }
     }
 }
