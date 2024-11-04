@@ -15,8 +15,7 @@
     <description>tp-foyer</description>
     <properties>
         <java.version>17</java.version>
-        <maven.compiler.source>11</maven.compiler.source> <!-- Source compatibility for Java 11 -->
-        <maven.compiler.target>11</maven.compiler.target> <!-- Target compatibility for Java 11 -->
+      
     </properties>
     <dependencies>
 
@@ -53,22 +52,30 @@
             <version>2.1.0</version>
         </dependency>
              
-             <dependency>
-         <!-- Log4j dependencies  -->
-    <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-slf4j-impl</artifactId>
-    <version>2.20.0</version> <!-- Ensure this is a compatible version -->
-</dependency>
-<dependency>
-    <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-api</artifactId>
-    <version>2.20.0</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-core</artifactId>
-    <version>2.20.0</version>
-</dependency>
+              <dependency>
+            <groupId>jakarta.transaction</groupId>
+            <artifactId>jakarta.transaction-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+   
 
 
 
