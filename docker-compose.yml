@@ -15,7 +15,7 @@ services:
   tp-foyer:
     depends_on:
       - mysqldb
-    image: adamgoulli/tp-foyer:1.0.0
+    image: adamgoulli1/tp-foyer:1.0.0
     restart: on-failure
     ports:
       - "8089:8089"
